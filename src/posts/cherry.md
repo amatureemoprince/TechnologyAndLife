@@ -7,6 +7,7 @@ tag:
   - 红
   - 小
   - 圆
+article: false
 ---
 
 # 樱桃

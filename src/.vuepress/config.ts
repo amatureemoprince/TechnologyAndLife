@@ -2,15 +2,15 @@ import { defineUserConfig } from "vuepress";
 
 import theme from "./theme.js";
 
-export default defineUserConfig({
-  base: "/TechnologyAndLife/",
+export default defineUserConfig(
+    {
 
-  lang: "zh-CN",
-  title: "TechnologyAndLife",
-  description: "热爱技术、享受生活",
+      base: "/TechnologyAndLife/",
+      lang: "zh-CN",
+      title: "Java咖啡馆",
+      description: "热爱技术、享受生活",
+      theme,
 
-  theme,
-
-  // 和 PWA 一起启用
-  // shouldPrefetch: false,
+      // 和 PWA 一起启用
+      // shouldPrefetch: false,
 });

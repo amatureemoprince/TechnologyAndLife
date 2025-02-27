@@ -5,22 +5,22 @@ order: 4
 category:
   - 使用指南
 tag:
-  - 禁用
+  - ture
+  
+navbar: true
+sidebar: true
 
-navbar: false
-sidebar: false
-
-breadcrumb: false
-pageInfo: false
+breadcrumb: true
+pageInfo: ture
 contributors: false
-editLink: false
-lastUpdated: false
-prev: false
-next: false
-comment: false
-footer: false
+editLink: true
+lastUpdated: true
+prev: true
+next: true
+comment: true
+footer: true
 
-backtotop: false
+backtotop: ture
 ---
 
 你可以通过设置页面的 Frontmatter，在页面禁用功能与布局。
