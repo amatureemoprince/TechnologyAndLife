@@ -1,27 +1,4 @@
----
-title: 布局与功能禁用
-icon: gears
-order: 4
-category:
-  - 使用指南
-tag:
-  - ture
-  
-navbar: true
-sidebar: true
 
-breadcrumb: true
-pageInfo: ture
-contributors: false
-editLink: true
-lastUpdated: true
-prev: true
-next: true
-comment: true
-footer: true
-
-backtotop: ture
----
 
 你可以通过设置页面的 Frontmatter，在页面禁用功能与布局。
 

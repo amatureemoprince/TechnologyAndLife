@@ -7,7 +7,6 @@ export default hopeTheme({
   hostname: "https://mister-hope.github.io",
   pure: true,
   fullscreen: true,
-  pageInfo: ["Author", "Category", "Tag", "Original", "Word", "ReadingTime"],
   author: {
     name: "小杰 like coding bug ❥",
     url: "https://mister-hope.com",
@@ -35,7 +34,6 @@ export default hopeTheme({
     sidebarDisplay: "mobile",
     medias: {
       Github: "https://github.com/",
-      CSND: "https://blog.csdn.net/m0_74394934?spm=1000.2115.3001.5343",
     },
   },
   // 加密配置
@@ -52,6 +50,7 @@ export default hopeTheme({
   metaLocales: {
     editLink: "在 GitHub 上编辑此页",
   },
+
 
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
   // hotReload: true,

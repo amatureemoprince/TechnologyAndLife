@@ -20,6 +20,7 @@ export default navbar([
   {
     text: "技术随笔",
     icon: "book",
-    link: "https://theme-hope.vuejs.press/zh/",
+    prefix: "/posts/notebook",
+    link: "/tech",
   },
 ]);
