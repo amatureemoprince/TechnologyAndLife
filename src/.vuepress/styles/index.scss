@@ -1,5 +1,7 @@
 .vp-hero-image {
   margin-left: -100px !important;
+  max-width: 100%; /* 确保图片在小屏幕上不超出容器 */
+  height: auto; /* 保持图片的纵横比 */
 }
 // 调整导航栏项目间距
 .vp-navbar {
@@ -29,8 +31,15 @@
   }
 }
 @media (max-width: 719px) {
+  .vp-hero-image {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
+  }
+@media (max-width: 719px) {
   .vp-navbar .nav-item {
     padding: 0 15px !important;
     margin: 0 2px !important;
   }
+}
 }
