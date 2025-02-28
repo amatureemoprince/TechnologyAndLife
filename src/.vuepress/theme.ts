@@ -4,31 +4,24 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
+  //全体页面设置
+  editLink: false,
+  focus: false,
+  //关于个人信息
+  hostname: "https://github.com/amatureemoprince",
   pure: true,
   fullscreen: true,
   author: {
-    name: "小杰 like coding bug ❥",
+    name: "阿杰 like coding bug ❥",
     url: "https://mister-hope.com",
   },
-
   logo: "/favicon.ico",
-
   repo: "https://github.com/amatureemoprince",
-
   docsDir: "src",
-
-  // 导航栏
   navbar,
-
-  // 侧边栏
   sidebar,
-
-  // 页脚
   footer: "茶与代码，诗与远方 | 一个程序员的技术与生活随想",
   displayFooter: true,
-
-  // 博客相关
   blog: {
     intro: "/about-the-author/",
     sidebarDisplay: "mobile",
@@ -45,13 +38,6 @@ export default hopeTheme({
       },
     },
   },
-
-  // 多语言配置
-  metaLocales: {
-    editLink: "在 GitHub 上编辑此页",
-  },
-
-
   // 如果想要实时查看任何改变，启用它。注: 这对更新性能有很大负面影响
   // hotReload: true,
   // 此处开启了很多功能用于演示，你应仅保留用到的功能。

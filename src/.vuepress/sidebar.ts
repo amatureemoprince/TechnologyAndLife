@@ -1,15 +1,10 @@
 import { sidebar } from "vuepress-theme-hope";
+import { javaCoffee} from "./sidebar/java-coffee.js";
+import { javaProject} from "./sidebar/java.js";
 
 export default sidebar({
-    "/": false,
-
-    // 生活随笔部分不显示侧边栏
-    "/life/": false,
-    "/demo/": false,
-    // 阅读感悟部分不显示侧边栏
-    "/reading/": false,
-    "/post/": false,
-    // 技术博客部分不显示侧边栏
-    "/intro": false,
-
+    //关于项目的侧边栏
+    "/java-coffee/": javaCoffee,
+    //java侧边栏
+    "/java/": javaProject,
 });

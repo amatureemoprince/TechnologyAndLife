@@ -3,24 +3,37 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
   {
     text: "首页",
-    icon: "home", // 添加首页图标
+    icon: "bookmark",
     link: "/",
   },
   {
-    text: "关于Java",
-    icon: "pen-to-square",
-    link: "/demo",
+    text: "使用指南",
+    icon: "/compass/",
+    link: "/about-the-project/"
   },
   {
-    text: "生活随笔",
-    icon: "pen-to-square",
-    prefix: "/posts/",
-    link: "/life"
+    text: "Java 生态圈",
+    icon: "laptop-code",
+    link: "/java/",
   },
   {
-    text: "技术随笔",
-    icon: "book",
-    prefix: "/posts/notebook",
-    link: "/tech",
+    text: "计算机基础",
+    icon: "book-open",
+    link: "/cs-basic/"
+  },
+  {
+    text: "杂谈",
+    icon: "feather",
+    link: "/read-book-thinking/"
+  },
+  {
+    text: "周周新鲜事",
+    icon: "lightbulb",
+    link: "/week-update/"
+  },
+  {
+    text: "关于作者",
+    icon: "users",
+    link: "/about-the-author/",
   },
 ]);
