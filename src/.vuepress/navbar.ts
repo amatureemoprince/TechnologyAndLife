@@ -9,7 +9,7 @@ export default navbar([
   {
     text: "使用指南",
     icon: "/compass/",
-    link: "/about-the-project/"
+    link: "/java-coffee/"
   },
   {
     text: "Java 生态圈",
@@ -22,7 +22,7 @@ export default navbar([
     link: "/cs-basic/"
   },
   {
-    text: "杂谈",
+    text: "笔隙杂谈",
     icon: "feather",
     link: "/read-book-thinking/"
   },
@@ -32,8 +32,19 @@ export default navbar([
     link: "/week-update/"
   },
   {
-    text: "关于作者",
+    text: "网站相关",
     icon: "users",
-    link: "/about-the-author/",
+    children: [
+      {
+        text: "查看历史",
+        link: "/article/",
+        icon: "book"
+      },
+      {
+        text: "关于作者",
+        link: "/about-the-author/",
+        icon: "user"
+      }
+    ]
   },
 ]);

@@ -29,6 +29,7 @@ export default hopeTheme({
       Github: "https://github.com/",
     },
   },
+  pageInfo: ["Author", "Category", "Tag", "Original", "Word", "ReadingTime"],
   // 加密配置
   encrypt: {
     config: {
