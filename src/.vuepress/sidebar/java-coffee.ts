@@ -7,6 +7,7 @@ export const javaCoffee = arraySidebar([
         children: [
             "about-java-coffee",
             "use-java-coffee-suggestions"
-        ]
+        ],
+        expanded: false
     }
 ])
