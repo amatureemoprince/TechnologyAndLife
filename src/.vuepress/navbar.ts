@@ -8,7 +8,7 @@ export default navbar([
   },
   {
     text: "使用指南",
-    icon: "/compass/",
+    icon: "compass",
     link: "/java-coffee/"
   },
   {

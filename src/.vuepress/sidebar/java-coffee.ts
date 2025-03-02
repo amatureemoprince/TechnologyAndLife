@@ -9,5 +9,5 @@ export const javaCoffee = arraySidebar([
             "use-java-coffee-suggestions"
         ],
         expanded: false
-    }
+    },
 ])

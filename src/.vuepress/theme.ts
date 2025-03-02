@@ -4,9 +4,11 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
+
   //全体页面设置
   editLink: false,
   focus: false,
+
   //关于个人信息
   hostname: "https://github.com/amatureemoprince",
   pure: true,
@@ -130,6 +132,7 @@ export default hopeTheme({
 
     icon: {
       prefix: "fa6-solid:",
+      assets: "fontawesome"
     },
 
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
