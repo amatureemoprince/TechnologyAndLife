@@ -9,33 +9,35 @@ export const computerBasic = arraySidebar([
             {
                 collapsible: true,
                 text: "前言",
-                link: "preface/",
                 prefix: "preface/",
                 children: [
                     "first-introduction-to-computer-networks",
                     "computer-network-details"
-                ]
+                ],
+                expanded: true
             },
             {
                 text: "物理层",
+                collapsible: true,
                 prefix: "physical-layer/",
-                link: "physical-layer/",
                 children: [
-
-                ]
+                    "overview.md",
+                ],
+                expanded: true
             },
 
         ],
-        expanded: false
+        expanded: true
     },
     {
         text: "数据结构",
         collapsible: true,
+        prefix: "data-structure/",
         icon: "data_usage",
         children: [
-
+            "README.md",
         ],
-        expanded: false
+        expanded: true
     },
     {
         text: "计算机组成原理",

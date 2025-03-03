@@ -5,6 +5,7 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
 
+  breadcrumb: false,
   //全体页面设置
   editLink: false,
   focus: false,
