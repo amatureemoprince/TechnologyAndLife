@@ -133,7 +133,7 @@ export default hopeTheme({
 
     comment: {
       provider: "Waline",
-      serverURL: "https://javacofe-cfc1r8tmf-ljs-projects-33f8b665.vercel.app/",
+      serverURL: "https://javacofe.vercel.app/",
       pageview: true,
     },
 
