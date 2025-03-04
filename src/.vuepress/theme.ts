@@ -131,6 +131,12 @@ export default hopeTheme({
       components: ["Badge", "VPCard"],
     },
 
+    comment: {
+      provider: "Waline",
+      serverURL: "https://javacofe-cfc1r8tmf-ljs-projects-33f8b665.vercel.app/",
+      pageview: true,
+    },
+
     icon: {
       prefix: "fa6-solid:",
       assets: "fontawesome"

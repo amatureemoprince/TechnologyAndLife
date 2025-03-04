@@ -36,6 +36,7 @@ export const computerBasic = arraySidebar([
         icon: "data_usage",
         children: [
             "README.md",
+            "time-and-space-complexity.md",
         ],
         expanded: true
     },
