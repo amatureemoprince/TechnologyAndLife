@@ -77,7 +77,6 @@ export default hopeTheme({
     tabs: true,
     tasklist: true,
     vPre: true,
-
     math: {
       // 启用前安装 katex
       type: "katex",

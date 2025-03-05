@@ -37,6 +37,8 @@ export const computerBasic = arraySidebar([
         children: [
             "README.md",
             "time-and-space-complexity.md",
+            "linear-list.md",
+
         ],
         expanded: true
     },
