@@ -84,11 +84,60 @@ next为指向下一个Node的指针，通过这个指针就可以找到与其紧
 
 就连Java中创造LinkList的作者都明确地说了“他自己从不使用LinkList”。
 
-![图片为证](https://cdn.nlark.com/yuque/0/2025/png/48073730/1741161112457-ab49679b-0e84-4270-bb9a-52c76f5fce4f.png)
+![图片为证](https://camo.githubusercontent.com/fbc58d844d97136609b9d64c7cf809a0761e57a4516b3274e457148096c8475b/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313136313131323435372d61623439363739622d306538342d343237302d626239612d3532633736663566636534662e706e67)
 
 ok，我们来做一个实验：
+分别使用一个数组和一个链表随机插入10000个元素，看看那个使用的时间更久。
+```java
+package com.lj.blog.main;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * @ClassName ArrayMain
+ * @Description
+ * @Author Dark Chocolate 2069057986@qq.com
+ * @Date 2025/3/5 16:09
+ * @Version JDK 17
+ */
+public class ArrayMain {
 
+        private static final int COUNT = 10000;
 
+        static List<Integer> fillList(List<Integer> list) {
+            for (int i = 0; i < COUNT; i++) {
+                list.add(i);
+            }
+            return list;
+        }
+
+        static void randomAdd(List<Integer> list, String listType) {
+            long t1 = System.currentTimeMillis();
+            for (int i = 0; i < COUNT; i++) {
+                list.add(ThreadLocalRandom.current().nextInt(0,COUNT), i);
+            }
+            long t2 = System.currentTimeMillis();
+            System.out.println(listType + "随机位置插入" + COUNT + "次耗时：" + (t2-t1));
+        }
+
+        public static void main(String[] args) {
+
+            randomAdd(fillList(new ArrayList<>(COUNT)), "数组");
+
+            randomAdd(fillList(new LinkedList<>()), "链表");
+
+        }
+
+}
+```
+此时运行的结果为：
+![COUNT为10000](https://camo.githubusercontent.com/0ec24c070b4f187b3c5c85bab0c1bb1d18f36fe98d31ddf3aa5ef873ddeea0c5/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313136323630323232312d35643135333539342d353031382d343337372d383466312d6438303735376537323961352e706e67)
+
+效果还不是很明显，我们将COUNT提升到100000，此时结果为：
+![COUNT为100000](https://camo.githubusercontent.com/fddedb5e67a3330123d5b289f2064193716b6de9fac6f56de67bfe4397467151/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313136323639313030362d63613766616134352d316436342d346635302d383661652d3830643834666266666531612e706e67)
+
+可以得出为什么在实际开发中几乎不会使用LinkList。所以说呀，理想总是丰满的，现实总是骨感的😅。
 
