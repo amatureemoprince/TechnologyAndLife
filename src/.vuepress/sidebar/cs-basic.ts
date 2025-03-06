@@ -38,7 +38,7 @@ export const computerBasic = arraySidebar([
             "README.md",
             "time-and-space-complexity.md",
             "linear-list.md",
-
+            "stack-queue-array.md",
         ],
         expanded: true
     },
