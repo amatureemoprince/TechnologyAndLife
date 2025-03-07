@@ -23,7 +23,7 @@ categories:
 - 入栈：push(Stack *stack, int data)
 - 出栈：pop(Stack *stack, int *x)
 - 销毁：destroyStack(Stack *stack)
-### 顺序表的实现方式
+### 顺序存储结构
 使用一组地址连续的存储单元存放从栈底到栈顶的数据元素并且使用一个top指针指向当前栈顶元素。
 
 使用C语言定义的结构体为：
@@ -73,7 +73,7 @@ void pop(Stack *stack, int *x){
 ![共享栈示意图](https://camo.githubusercontent.com/02750d0eb7d42277ed57988d87d894d12e522052a7a56cc407b45fa85441946a/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313331363637373735322d38343434646234652d336665312d343065322d386665312d6231396231303239333464372e706e67)
 
 这种方式可以更好地利用存储空间，只有在整个存储空间被占满的情况下才会发生溢出。
-### 链表的实现方式
+### 链式存储结构
 我们采用单链表来实现栈。采用**不带有头结点**的单链表并且所有操作都在表头进行。（也可以采用带有头结点的，只不过操作有些不同）
 
 C语言的结构体为：
@@ -85,13 +85,12 @@ typedef struct StackNode{
 ```
 #### 初始化
 ```c
-StackNode *init(int data){
+StackNode *init(){
     Stack *head = (StackNode *)malloc(sizeof(StackNode));
     if(head == NULL){
         fprintf(stderr, "分配内存失败");
         exit(1);
     }
-    head->data = data;
     head->next = NULL;
     return head;
 }
@@ -102,7 +101,8 @@ void insert(StackNode *head, int data){
     if(head == NULL){
         return;
     }
-    StackNode *node = creatStackNode(data);
+    StackNode *node = creatStackNode();
+    head->data = data;
     node->next = head->next;
     head->next = node;
 }
@@ -137,23 +137,8 @@ void delete(StackNode *head, int *x){
 
 ### 队列顺序存储结构
 使用连续的存储单元存放队列中的元素，并需要设置两个指针。分别为**队首指针：front，指向队首元素；队尾指针：rear，指向队尾元素的下一个位置。**
-:::tip 注意
-front和rear指针的指向可以和这里的不同，具体的做法根据题目中的描述进行。
-:::
+
 队列和栈都是操作受限制的线性表，所以不是所有的线性表操作都可以在这两者上复现。如：随机存取。
-
-设想一种情况：一个队列总共有3个连续的空间可以进行存储，入队了2个元素然后出队了1个元素，再入队一个元素，之后如果再入队会发现队列已经满了，因为rear已经指向3了，但是实际上front指向1，在0处还有一个空余的空间没有使用，这种情况我们称为“假溢出”。
-
-那这样的情况我们应该怎样解决呢？答案就是使用循环队列，这个循环是指在逻辑上循环，这样就可以充分地利用每一个空间了。
-
-此时判断空的条件为：queue->front == queue->rear；判断满的条件也为：queue->front == queue->rear。
-
-所以使用循环队列又引入了一个新的问题，怎样判断空和满？
-
-常用的方法有三种：
-- 牺牲一个存储单元：让rear在front后面一位时为**满**；让front和rear相同时为**空**，这样就可以进行区分了。队满条件：(queue->rear + 1) % MAX_SIZE == queue->front；队空条件：queue->front == queue->rear。
-- 增加一个size数据成员：使用size表示队列中的数据元素个数，虽然**空**和**满**的判断条件依然相同，但是size可以提供是空还是满的依据，**size为0则为空，size为MAX_SIZE则为满。**
-- 增加一个tag数据成员：
 
 C语言实现的结构体为：
 ```c
@@ -185,12 +170,51 @@ void inQueue(Queue *queue, int data){
     queue->data[queue->rear++] = data;
 }
 ```
+#### 出队
+```c
+void outQueue(Queue *queue, int *x){
+    if(queue == NULL || queue->front == queue->rear){
+        return;
+    } 
+    (*x) = queue->data[queue->front--];
+}
+```
+#### 销毁
+```c
+void destroyQueue(Queue *queue){
+    free(queue);
+}
+```
+### 循环队列
+设想一种情况：一个队列总共有3个连续的空间可以进行存储，入队了2个元素然后出队了1个元素，再入队一个元素，之后如果再入队会发现队列已经满了，因为rear已经指向3了，但是实际上front指向1，在0处还有一个空余的空间没有使用，这种情况我们称为“假溢出”。
 
+那这样的情况我们应该怎样解决呢？答案就是使用循环队列，这个循环是指在逻辑上循环，这样就可以充分地利用每一个空间了。
+
+此时判断空的条件为：queue->front == queue->rear；判断满的条件也为：queue->front == queue->rear。
+
+所以使用循环队列又引入了一个新的问题，怎样判断空和满？
+
+常用的方法有三种：
+- 牺牲一个存储单元：让rear在front后面一位时为**满**；让front和rear相同时为**空**，这样就可以进行区分了。队满条件：(queue->rear + 1) % MAX_SIZE == queue->front；队空条件：queue->front == queue->rear。
+- 增加一个size数据成员：使用size表示队列中的数据元素个数，虽然**空**和**满**的判断条件依然相同，但是size可以提供是空还是满的依据，**size为0则为空，size为MAX_SIZE则为满。**
+- 增加一个tag数据成员：入队成功设置tag为1，出队成功设置tag为0。若导致queue->front == queue->rear，我们可以检查tag的值，为1则表示队列满否则就是队列空。
+
+![循环队列示意图](https://camo.githubusercontent.com/57035a19caeb07a2a7519a0a25781563db5d8083d166c154befca78ac97702b3/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313333393133373332302d37376333636134632d316264662d343865622d383764362d6130383161333934356331632e706e67)
+
+使用循环队列对指针有以下操作：
+- 添加元素：`queue->rear = (queue->rear + 1) % MAX_SIZE`;
+- 删除元素：`queue->front = (queue->front + 1) % MAX_SIZE`;
+- 求队列长度：`len = (queue->rear - queue->front + MAX_SIZE) % MAX_SIZE`;
 ### 队列的链式存储结构
 
-### 循环队列
 
 ## 栈和队列的应用
+
+### 求后缀表达式
+
+### 求运算结果
+
+### 缓冲
 
 ## 数组和特殊矩阵
 ### 数组的定义
@@ -200,7 +224,10 @@ void inQueue(Queue *queue, int data){
 
 ### 矩阵的压缩
 1. 对称矩阵
-
+上三角和下三角的值完全相同则为一个对称矩阵，其具有$a_{ij} = a_{ji}$的特点。
+![对称三角示意图](https://camo.githubusercontent.com/843e800594d0544291313339e2cb67a784e7374f550c307e1b82449c0ddd7597/68747470733a2f2f63646e2e6e6c61726b2e636f6d2f79757175652f302f323032352f706e672f34383037333733302f313734313335363635393439392d38316163343135632d356164322d343034612d383132652d3166663339383366653236312e706e67)
+我们想一下，在一个**n x n**的矩阵中，上三角和下三角的元素都进行存储，那么我们会使用$n^2$个连续的存储单元，而全部存储真的有必要吗？显然是不必要的，我们只需要存储对角线上的元素和一侧的元素。（因为另一半一样故不用重复存储）
+那现在存储这样的矩阵需要多少个连续的存储单元呢？我们使用前n项和公式计算一下就知道为 $\frac {n(n + 1)}{2}$。
 2. 三角矩阵
 
 3. 对三角矩阵

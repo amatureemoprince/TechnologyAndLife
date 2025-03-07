@@ -40,6 +40,7 @@ export const computerBasic = arraySidebar([
             "linear-list.md",
             "stack-queue-array.md",
             "string.md",
+            "tree-binary-tree.md",
         ],
         expanded: true
     },
