@@ -10,22 +10,22 @@ categories:
 > 线性表是具有**相同数据类型**的n（n >= 0）个数据元素的**有限序列**，其中n为表长，当n = 0时线性表是一个空表。若使用L命名线性表，则表示为：
 > **L = (a1, a2, ..., an)**
  
-重要的是有限个且类型相同。我们可以知道线性表有一下的特性：
+重要的是有限个且类型相同。我们可以知道线性表有以下的特性：
 - 元素类型相同。
 - 个数有限。
 - 除了第一个元素，其余每个元素都有一个直接前驱。
 - 除了最后一个元素，其余每个元素都有一个直接后继。
 
-线性表只是一种**逻辑结构**，表示的是元素之间是“挨着”的关系，它有不同的物理实现方式（顺序表、链表）。
+线性表只是一种**逻辑结构**，表示的是元素之间是“挨着”的关系，它可以有不同的物理实现方式（顺序表、链表）。
 
 ## 基本操作
 一般来说，学习了一个数据结构的结构后，就需要学习在这个结构上我们可以进行的操作。在这里学习的线性表具有的操作有：
-- 初始化：InitList()
-- 求表长：Length()
-- 按位插入：ListInsert(Element *head, int val, int location)
-等等
-
-这些操作知道就可以了，考试出题是让我们进行实现的，不是让我们写方法的。
+- 初始化：initList()
+- 求表长：length()
+- 按位插入：listInsert(Element *head, int val, int location)
+- 按位删除：delete(Element *head, int location)
+- 查找值：findVal(Element *head, int val)
+- 销毁：destroyList()
 
 ## 顺序表
 在上面我们进行了定义线性表，我们知道其是一种逻辑结构，具体的实现有两种。
@@ -150,7 +150,7 @@ public class ArrayMain {
 ### 插入
 顺序表中的插入会将该位置及其以后的元素都向后移动一位。
 ```c
-void insert(int *arr, int location, int val, int *len){
+void insertList(int *arr, int location, int val, int *len){
     for(int i = *len; i > location - 1; i++){
         arr[i] = arr[i - 1];
     }
@@ -171,7 +171,7 @@ void delete(int *arr, int location, int *len){
 ### 按值查找
 通过遍历查找符合条件元素的索引，存在则返回对应索引，否则返回-1。
 ```c
-int findByVal(int *arr, int val, int len){
+int findVal(int *arr, int val, int len){
     for(int i = 0; i < len; i++){
         if(arr[i] = val){
             return i;
@@ -180,7 +180,6 @@ int findByVal(int *arr, int val, int len){
     return -1;
 }
 ```
-还有许多操作这里就不再一一举例了，后面会有更多相应的题目。
 ## 各种链表
 在这里值得说明一下 头结点、头指针在有与没有头结点的表示含义。（使用head表示头指针）
 头结点是一个特殊的节点，它其中的data属性一般不存放数据，如果要存放可以存放节点的个数，这里的个数是不包含的头结点的，因为头结点只是一个工具而已便于我们对元素进行操作。在没有特殊说明的情况下都是存在头结点的。
