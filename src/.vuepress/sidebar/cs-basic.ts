@@ -33,7 +33,7 @@ export const computerBasic = arraySidebar([
         text: "数据结构",
         collapsible: true,
         prefix: "data-structure/",
-        icon: "data_usage",
+        icon: "folder-tree",
         children: [
             "README.md",
             "time-and-space-complexity.md",
@@ -41,6 +41,9 @@ export const computerBasic = arraySidebar([
             "stack-queue-array.md",
             "string.md",
             "tree-binary-tree.md",
+            "graph.md",
+            "search-algorithm.md",
+            "sort-algorithm.md"
         ],
         expanded: true
     },
