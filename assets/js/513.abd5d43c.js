@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktechnology_life_blog=self.webpackChunktechnology_life_blog||[]).push([[513],{7513:(e,l,o)=>{o.r(l)}}]);
