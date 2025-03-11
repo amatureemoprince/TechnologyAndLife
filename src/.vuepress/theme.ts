@@ -32,7 +32,7 @@ export default hopeTheme({
       Github: "https://github.com/",
     },
   },
-  pageInfo: ["Author", "Category", "Tag", "Original", "Word", "ReadingTime"],
+  pageInfo: ["Author", "Category", "Tag", "Original", "Word", "ReadingTime", "PageView"],
   // 加密配置
   encrypt: {
     config: {
