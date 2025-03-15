@@ -1,6 +1,6 @@
 ---
 title: "周周新鲜事"
-icon: globe-pointer
+icon: kiwi-bird
 categories:
   - "周周新鲜事"
   - "国内外"

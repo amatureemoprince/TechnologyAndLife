@@ -1,19 +1,38 @@
 ---
-home: true                        # 标记这是首页
-icon: home                        # 页面图标
-title: Java 和 生活               # 页面标题
-heroImage: /favicon.ico             # 首页大图
-heroText: Java咖啡馆             # 首页主标题
+home: true
+icon: coffee
+title: Java咖啡馆 ☕
+heroImage: /favicon.ico # 建议替换为咖啡+代码风格的横幅图
+heroText: Java咖啡馆
 tagline: 「Java学习 + 生活分享」涵盖我对于 Java （生态） 理解 和 日常杂谈
-sidebar: false
 actions:
-  - text: 开始阅读              # 按钮文字
-    link: /java-coffee/         # 按钮链接
-    type: primary             # 按钮类型（主要按钮）
-  - text: 各种新鲜事             # 第二个按钮文字
+  - text: 立即品读 ☕
+    link: /java-coffee/
+    type: primary
+    size: large
+  - text: 新鲜事速递 ✨
     link: /week-update/
-    type: default         
+    type: default
+    size: large
+features:
+  - title: 知识沉淀
+    icon: puzzle-piece
+    link: /cs-basic/
+    details: 持续输出优质内容 
+  - title: 技术生态
+    icon: leaf
+    link: /java/
+    details: 深入Java生态
+  - title: 开源共享
+    icon: code-merge
+    link: https://github.com/amatureemoprince/TechnologyAndLife
+    details: 完全开源项目 
+  - title: 新鲜趣事
+    icon: kiwi-bird
+    link: /week-update/
+    details: 世界各地的神奇趣事
 ---
+
 ## 关于本站
 
 Java咖啡馆的目的是持续输出优质学习内容，为开源事业出一份绵薄之力，尽努力维护一个免费、全面、优质的学习网站。
@@ -27,10 +46,5 @@ Java咖啡馆的目的是持续输出优质学习内容，为开源事业出一�
 - [时间轴](./timeline/)
 
 如果觉得本项目中的内容是你感兴趣或者有一定帮助的，请在GitHub上为我点一个免费的**star**吧！你的支持是对我最大的鼓励。
+
 **点击右侧跳转：**[GitHub](https://github.com/amatureemoprince/TechnologyAndLife)
-
-
-
-
-
-
