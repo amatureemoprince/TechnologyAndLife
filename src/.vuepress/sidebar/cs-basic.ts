@@ -25,6 +25,16 @@ export const computerBasic = arraySidebar([
                 ],
                 expanded: true
             },
+            {
+                text: "网络层",
+                collapsible: true,
+                expanded: true,
+                prefix: "network-layer",
+                children: [
+                    "overview.md",
+                    "the-two-services.md"
+                ]
+            }
 
         ],
         expanded: true
