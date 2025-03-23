@@ -195,37 +195,36 @@ C语言代码解释一下：
 
 **在没有头结点的情况下，头指针指向第一个带数据的节点**
 ```c
-LinkNode *removeElements(LinkNode *head, int val) {
-    if (head == NULL) {
-        return NULL;
-    }
-
+LinkNode *removeElements(LinkNode **head, int val) {
     LinkNode *temp;
 
-    while (head->data == val) {
-        temp = head;
-        head = head->next;
+    // 处理头结点
+    while (head != NULL && (*head)->data == val) {
+        temp = *head;
+        *head = temp->next;
         free(temp);
     }
 
-    LinkNode *p = head;
+    LinkNode *p = *head;
 
+    // 处理剩余节点
     while (p != NULL && p->next != NULL) {
         if (p->next->data == val) {
             temp = p->next;
             p->next = temp->next;
             free(temp);
-        }else {
+        } else {
             p = p->next;
         }
     }
 
-    return head;
+    return *head;
 }
 ```
 
 **在带有一个头节点的情况下，头指针指向没有数据的头节点**
 ```c
+//因为不用修改head故可以直接传入LinkNode *head
 LinkNode *removeElementsWithHeadNode(LinkNode *head, int val) {
     
     LinkNode *temp;
@@ -235,7 +234,7 @@ LinkNode *removeElementsWithHeadNode(LinkNode *head, int val) {
     while (p->next != NULL) {
         if (p->next->data == val) {
             temp = p->next;
-            p = temp->next;
+            p->next = temp->next;
             free(temp);
         }else {
             p = p->next;
