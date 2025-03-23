@@ -190,6 +190,62 @@ int findVal(int *arr, int val, int len){
 看来头指针总是指向链表中的第一个节点，在初始时，若**存在头结点**则指向头结点；若**不存在头结点**则指向NULL。
 
 在有头结点的情况是更合理的。因为有头结点的话不管是在首部插入、删除或是在中间部分插入、删除，其代码都是统一的。而没有头结点的话则需要额外的判断，因为可能需要修改头指针。
+
+C语言代码解释一下：
+
+**在没有头结点的情况下，头指针指向第一个带数据的节点**
+```c
+LinkNode *removeElements(LinkNode *head, int val) {
+    if (head == NULL) {
+        return NULL;
+    }
+
+    LinkNode *temp;
+
+    while (head->data == val) {
+        temp = head;
+        head = head->next;
+        free(temp);
+    }
+
+    LinkNode *p = head;
+
+    while (p != NULL && p->next != NULL) {
+        if (p->next->data == val) {
+            temp = p->next;
+            p->next = temp->next;
+            free(temp);
+        }else {
+            p = p->next;
+        }
+    }
+
+    return head;
+}
+```
+
+**在带有一个头节点的情况下，头指针指向没有数据的头节点**
+```c
+LinkNode *removeElementsWithHeadNode(LinkNode *head, int val) {
+    
+    LinkNode *temp;
+    
+    LinkNode *p = head;
+    
+    while (p->next != NULL) {
+        if (p->next->data == val) {
+            temp = p->next;
+            p = temp->next;
+            free(temp);
+        }else {
+            p = p->next;
+        }
+    }
+    
+    return head;
+}
+
+```
 ### 单链表
 在上面已经提到过了，这里给出详细定义。
 > 定义：通过一组任意的存储单元来存储线性表中的数据元素。为了建立数据元素之间的线性关系，对每个链表节点，除元素自身的信息外，还需要存储一个指向下一个节点的指针。
