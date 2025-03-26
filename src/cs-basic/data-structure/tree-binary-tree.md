@@ -50,7 +50,7 @@ icon: tree
 
 **3. 高度为h的m叉树至多有$\frac{m^h - 1}{m - 1}$个节点**：根据等比数列的前n项和公式可以轻松得到这个结论。
 
-**4. 度为m、具有n个节点的树的最小高度h为$[log_m(n(m - 1)) + 1]$(注意是需要向下取整的)**：因为要求是最小的高度，所以在最后一层之上的每个节点的度都要为m，设树的高度为h，前h - 1层最多有 **$\frac{m^{h - 1}}{m - 1}$** 个节点，前n层最多有 **$\frac{m^h}{m - 1}$** 个节点，并且要满足 **$\frac{m^{h - 1}}{m - 1} < n \leq  \frac{m^h}{m - 1}$**，根据这个不等式可得最终结果。
+**4. 度为m、具有n个节点的树的最小高度h为$[log_m(n(m - 1)) + 1]$(注意是需要向上取整的)**：因为要求是最小的高度，所以在最后一层之上的每个节点的度都要为m，设树的高度为h，前h - 1层最多有 **$\frac{m^{h - 1}}{m - 1}$** 个节点，前n层最多有 **$\frac{m^h}{m - 1}$** 个节点，并且要满足 **$\frac{m^{h - 1}}{m - 1} < n \leq  \frac{m^h}{m - 1}$**，根据这个不等式可得最终结果。
 
 **5. 度为m、具有n个节点的树的最大高度h为$n - m + 1$**：条件为h最高，则满足在上部分为两两节点连接，只在两两节点相连的最后一个节点实现度为m。
 ## **树的存储结构**
@@ -394,10 +394,10 @@ void inThread(ThreadNode **pre, ThreadNode *p) {
 }
 
 
-void createThreadTree(ThreadNode *root){
+void createThreadTree(ThreadNode **root){
     ThreadNode *pre = NULL;
     if(root != NULL){
-        inThread(pre, root);
+        inThread(&pre, root);
         pre->rchild = NULL;
         pre->rtag = 1;
     }
