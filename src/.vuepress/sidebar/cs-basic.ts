@@ -1,6 +1,7 @@
 import { arraySidebar } from "vuepress-theme-hope";
 export const computerBasic = arraySidebar([
     {
+        //first-introduction-to-computer-networks.html
         text: "计算机网络",
         collapsible: true,
         icon: "network-wired",
@@ -11,8 +12,8 @@ export const computerBasic = arraySidebar([
                 text: "前言",
                 prefix: "preface/",
                 children: [
-                    "first-introduction-to-computer-networks",
-                    "computer-network-details"
+                    "first-introduction-to-computer-networks.md",
+                    "computer-network-details.md"
                 ],
                 expanded: true
             },
@@ -29,7 +30,7 @@ export const computerBasic = arraySidebar([
                 text: "网络层",
                 collapsible: true,
                 expanded: true,
-                prefix: "network-layer",
+                prefix: "network-layer/",
                 children: [
                     "overview.md",
                     "the-two-services.md"
@@ -39,7 +40,7 @@ export const computerBasic = arraySidebar([
                 text: "传输层",
                 collapsible: true,
                 expanded: true,
-                prefix: "transport-layer",
+                prefix: "transport-layer/",
                 children: [
                     "overview.md",
                     "udp-user-datagram-protocol.md",
